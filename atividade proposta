@@ -1,0 +1,71 @@
+alunos = []
+
+while True:
+    print("\n===== SISTEMA DE CADASTRO DE ALUNOS =====")
+    print("1 - Cadastrar aluno")
+    print("2 - Listar alunos")
+    print("3 - Consultar aluno")
+    print("4 - Excluir aluno")
+    print("5 - Sair")
+
+    opcao = input("Escolha uma opção: ")
+
+    if opcao == "1":
+        nome = input("Digite o nome do aluno: ")
+        idade = input("Digite a idade do aluno: ")
+        curso = input("Digite o curso: ")
+
+        aluno = {
+            "nome": nome,
+            "idade": idade,
+            "curso": curso
+        }
+
+        alunos.append(aluno)
+        print("Aluno cadastrado com sucesso!")
+
+    elif opcao == "2":
+        if len(alunos) == 0:
+            print("Nenhum aluno cadastrado.")
+        else:
+            for aluno in alunos:
+                print("\nNome:", aluno["nome"])
+                print("Idade:", aluno["idade"])
+                print("Curso:", aluno["curso"])
+
+    elif opcao == "3":
+        nome = input("Digite o nome do aluno: ")
+
+        encontrado = False
+
+        for aluno in alunos:
+            if aluno["nome"].lower() == nome.lower():
+                print("Nome:", aluno["nome"])
+                print("Idade:", aluno["idade"])
+                print("Curso:", aluno["curso"])
+                encontrado = True
+
+        if encontrado == False:
+            print("Aluno não encontrado.")
+
+    elif opcao == "4":
+        nome = input("Digite o nome do aluno que deseja excluir: ")
+
+        encontrado = False
+
+        for aluno in alunos:
+            if aluno["nome"].lower() == nome.lower():
+                alunos.remove(aluno)
+                print("Aluno excluído com sucesso!")
+                encontrado = True
+                break
+
+        if encontrado == False:
+            print("Aluno não encontrado.")
+
+    elif opcao == "5":
+        print("Sistema encerrado!")
+        break
+
+    else:
+        print("Opção inválida!")
