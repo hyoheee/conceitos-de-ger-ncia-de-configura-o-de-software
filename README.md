@@ -1,0 +1,1 @@
+# conceitos-de-ger-ncia-de-configura-o-de-software
